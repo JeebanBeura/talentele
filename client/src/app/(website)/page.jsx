@@ -8,6 +8,7 @@ import Mentors from "./_components/home/Mentors";
 import SuccessWall from "./_components/home/SuccessWall";
 import Testimonials from "./_components/home/Testimonials";
 import FAQ from "./_components/home/FAQ";
+import CTASection from "./_components/home/CTASection";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <SuccessWall />
       <Testimonials />
       <FAQ />
+      <CTASection />
     </main>
   );
 }
