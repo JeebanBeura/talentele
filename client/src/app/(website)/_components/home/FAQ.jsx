@@ -89,8 +89,8 @@ export default function FAQ() {
   // Filter FAQs based on search and category
   const filteredFaqs = useMemo(() => {
     return FAQ_DATA.filter((faq) => {
-      const matchesSearch = faq.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesSearch = faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesCategory = activeCategory === "All" || faq.category === activeCategory;
       return matchesSearch && matchesCategory;
     });
@@ -124,7 +124,7 @@ export default function FAQ() {
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         className="absolute top-[10%] left-[10%] w-[35%] h-[40%] rounded-full bg-[#E6002D]/5 blur-[120px] pointer-events-none"
       />
-      
+
       <Container className="relative z-10">
         {/* Header Section */}
         <div className="flex flex-col items-center w-full max-w-3xl mx-auto text-center mb-12">
@@ -150,14 +150,14 @@ export default function FAQ() {
               Got Questions? <br className="hidden sm:block" />
               We've Got <span className="text-[#E6002D]">Answers</span>
             </Heading>
-            
+
             <Text variant="bodyLarge" color="muted" className="mb-8 text-center mx-auto max-w-2xl">
               Find everything you need to know about our programs, admissions, and how we help you launch a successful career.
             </Text>
           </motion.div>
 
           {/* Search Bar */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -175,7 +175,7 @@ export default function FAQ() {
               className="w-full h-16 pl-14 pr-12 rounded-[24px] border border-[#EAEAEA] bg-white shadow-sm outline-none transition-all duration-300 focus:border-[#E6002D]/30 focus:shadow-[0_8px_30px_rgb(230,0,45,0.12)] text-[#111111] font-medium text-lg placeholder:text-[#A3A3A3]"
             />
             {searchQuery && (
-              <button 
+              <button
                 onClick={clearSearch}
                 className="absolute inset-y-0 right-6 flex items-center text-[#A3A3A3] hover:text-[#525252] transition-colors focus:outline-none"
               >
@@ -264,7 +264,7 @@ export default function FAQ() {
                         </motion.div>
                       </div>
                     </div>
-                    
+
                     <AnimatePresence>
                       {isOpen && (
                         <motion.div
@@ -288,7 +288,7 @@ export default function FAQ() {
             </AnimatePresence>
           </div>
         ) : (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="flex flex-col items-center justify-center py-16 text-center"
@@ -298,8 +298,8 @@ export default function FAQ() {
             </div>
             <Heading level="h4" className="text-[#111111] mb-2">No matching questions found</Heading>
             <Text variant="body" color="muted" className="mb-6">Try adjusting your search terms or browse all FAQs.</Text>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={() => {
                 setSearchQuery("");
                 setActiveCategory("All");
@@ -310,40 +310,6 @@ export default function FAQ() {
             </Button>
           </motion.div>
         )}
-
-        {/* Bottom CTA */}
-        <div className="mt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative w-full max-w-4xl mx-auto rounded-[32px] overflow-hidden bg-white border border-[#EAEAEA] shadow-xl p-8 sm:p-12 text-center"
-          >
-            {/* Soft background gradient for CTA */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-transparent pointer-events-none" />
-            
-            <div className="relative z-10 flex flex-col items-center gap-6">
-              <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center text-[#E6002D] mb-2">
-                <MessageCircle className="w-8 h-8" />
-              </div>
-              <Heading level="h3" className="text-[#111111]">
-                Still have questions?
-              </Heading>
-              <Text variant="bodyLarge" color="muted" className="max-w-xl">
-                Our career counselors are here to help you make the right decision for your future.
-              </Text>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                <Button variant="primary" size="lg" className="rounded-full font-semibold shadow-lg shadow-[#E6002D]/20 px-8 h-14">
-                  Book Free Session
-                </Button>
-                <Button variant="outline" size="lg" className="rounded-full font-semibold border-[#EAEAEA] text-[#111111] hover:bg-[#FAFAFA] px-8 h-14">
-                  Contact Support
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
 
       </Container>
     </Section>
