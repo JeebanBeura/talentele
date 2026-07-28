@@ -14,7 +14,7 @@ export default function Hero() {
         <Grid className="items-center gap-16 lg:gap-12">
 
           {/* Left Side (55%) */}
-          <div className="flex flex-col gap-8 lg:col-span-7">
+          <div className="flex flex-col gap-8 col-span-12 lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -48,11 +48,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               className="flex flex-wrap items-center gap-4"
             >
-              <Button variant="primary" size="lg" className="rounded-full shadow-lg shadow-[#E6002D]/20 hover:shadow-[#E6002D]/40 group h-14 px-8 text-base font-semibold">
+              <Button variant="primary" size="lg" className="rounded-full shadow-lg shadow-[#E6002D]/20 hover:shadow-[#E6002D]/40 group h-14 px-8 text-base font-semibold w-full sm:w-auto">
                 Apply Now
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full bg-white/60 backdrop-blur-sm border-[#EAEAEA] hover:bg-white text-[#111111] h-14 px-8 text-base font-semibold shadow-sm">
+              <Button variant="outline" size="lg" className="rounded-full bg-white/60 backdrop-blur-sm border-[#EAEAEA] hover:bg-white text-[#111111] h-14 px-8 text-base font-semibold shadow-sm w-full sm:w-auto">
                 Explore Programs
               </Button>
             </motion.div>
@@ -105,7 +105,7 @@ export default function Hero() {
           </div>
 
           {/* Right Side (45%) */}
-          <div className="relative lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="relative col-span-12 lg:col-span-5 flex justify-center lg:justify-end mt-8 lg:mt-0">
             {/* Background Glow for Card */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-[40px] bg-gradient-to-tr from-[#E6002D]/15 to-pink-300/20 blur-2xl opacity-70 pointer-events-none" />
 

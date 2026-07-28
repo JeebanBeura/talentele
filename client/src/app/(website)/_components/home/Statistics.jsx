@@ -69,7 +69,7 @@ export default function Statistics() {
       <Container className="relative z-10">
         <Grid className="items-center gap-12 lg:gap-8">
           {/* Left Content (40%) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="col-span-12 lg:col-span-5 flex flex-col gap-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -106,7 +106,7 @@ export default function Statistics() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-4 flex items-start gap-8"
             >
-              <Button variant="primary" size="lg" className="rounded-full shadow-lg shadow-[#E6002D]/15 hover:shadow-[#E6002D]/30 px-8 text-base font-semibold group h-14">
+              <Button variant="primary" size="lg" className="rounded-full shadow-lg shadow-[#E6002D]/15 hover:shadow-[#E6002D]/30 px-8 text-base font-semibold group h-14 w-full sm:w-auto text-center justify-center">
                 Explore Success Stories
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -122,7 +122,7 @@ export default function Statistics() {
           </div>
 
           {/* Right Content (60%) - Pillars */}
-          <div className="lg:col-span-7">
+          <div className="col-span-12 lg:col-span-7 mt-8 lg:mt-0">
             <div className="flex overflow-x-auto lg:overflow-visible lg:justify-center items-end gap-4 lg:gap-6 pb-8 pt-12 px-4 lg:px-0 -mx-4 lg:mx-0 snap-x snap-mandatory hide-scrollbar">
               {STATS.map((stat, index) => {
                 const Icon = stat.icon;
