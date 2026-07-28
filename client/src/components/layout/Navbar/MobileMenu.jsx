@@ -49,31 +49,57 @@ export default function MobileMenu({ onClose }) {
         </div>
 
         <nav className="flex flex-col gap-4 overflow-y-auto pb-6">
-          {NAVIGATION.map((item) => (
-            <div key={item.label} className="flex flex-col gap-2">
-              <Link
-                href={item.href}
-                onClick={onClose}
-                className="text-lg font-medium text-white/90 hover:text-[#E6002D] transition-colors"
-              >
-                {item.label}
-              </Link>
-              {item.submenu && (
-                <div className="pl-4 flex flex-col gap-3 mt-2 border-l border-white/10">
-                  {item.submenu.map((sub) => (
-                    <Link
-                      key={sub.label}
-                      href={sub.href}
-                      onClick={onClose}
-                      className="text-white/60 hover:text-[#E6002D] transition-colors"
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+          {NAVIGATION.map((item) => {
+            const hasSubmenu = !!item.submenu;
+            const [isOpen, setIsOpen] = require("react").useState(false);
+            
+            return (
+              <div key={item.label} className="flex flex-col gap-2">
+                {hasSubmenu ? (
+                  <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="flex items-center justify-between text-lg font-medium text-white/90 hover:text-[#E6002D] transition-colors w-full text-left"
+                  >
+                    {item.label}
+                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </motion.div>
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={onClose}
+                    className="text-lg font-medium text-white/90 hover:text-[#E6002D] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                )}
+                
+                {hasSubmenu && (
+                  <motion.div 
+                    initial={false}
+                    animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pl-4 flex flex-col gap-3 mt-2 border-l border-white/10 pb-2">
+                      {item.submenu.map((sub) => (
+                        <Link
+                          key={sub.label}
+                          href={sub.href}
+                          onClick={onClose}
+                          className="text-white/60 hover:text-[#E6002D] transition-colors py-1"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+            );
+          })}
         </nav>
 
         <div className="mt-auto pb-8">
