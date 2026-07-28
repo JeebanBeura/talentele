@@ -98,12 +98,7 @@ export default function Footer() {
         }
       `}} />
 
-      {/* Massive Background Text */}
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none select-none z-0">
-        <div className="text-[20vw] lg:text-[220px] font-black tracking-[-0.04em] leading-none shimmer-text mt-[-10vh]">
-          TALENTELE
-        </div>
-      </div>
+      {/* Removed the background TALENTELE text from here */}
 
       <Container className="relative z-10 flex flex-col">
         {/* Footer Top Columns */}
@@ -213,6 +208,19 @@ export default function Footer() {
                 Subscribe
               </button>
             </form>
+          </div>
+        </motion.div>
+
+        {/* Massive Foreground Text */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="w-full flex items-center justify-center overflow-hidden py-8 md:py-12 select-none"
+        >
+          <div className="text-[18vw] lg:text-[180px] xl:text-[220px] font-black tracking-[-0.04em] leading-none shimmer-text">
+            TALENTELE
           </div>
         </motion.div>
 
