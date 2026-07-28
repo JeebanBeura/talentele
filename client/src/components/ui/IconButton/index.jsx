@@ -32,7 +32,7 @@ const iconButtonVariants = cva(
 );
 
 const IconButton = React.forwardRef(
-  ({ className, variant, size, shape, isLoading, icon, disabled, ...props }, ref) => {
+  ({ className, variant, size, shape, isLoading, icon, children, disabled, ...props }, ref) => {
     return (
       <button
         className={cn(iconButtonVariants({ variant, size, shape, className }))}
@@ -40,7 +40,7 @@ const IconButton = React.forwardRef(
         disabled={disabled || isLoading}
         {...props}
       >
-        {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : icon}
+        {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : (icon || children)}
       </button>
     );
   }
