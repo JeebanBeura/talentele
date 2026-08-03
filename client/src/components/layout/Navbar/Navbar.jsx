@@ -24,7 +24,7 @@ export default function Navbar() {
           className={cn(
             "flex h-[72px] w-full max-w-[1440px] items-center justify-between rounded-full px-6 transition-all duration-300 md:px-8",
             isScrolled
-              ? "bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-md shadow-sm border border-[#EAEAEA] dark:border-[#1E293B]"
+              ? "bg-white/80 backdrop-blur-md shadow-sm border border-[#EAEAEA]"
               : "bg-transparent border-transparent"
           )}
         >

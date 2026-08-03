@@ -82,13 +82,13 @@ const JourneyCard = ({ step, align }) => (
     viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
     transition={{ duration: 0.6, ease: "easeOut" }}
     className={cn(
-      "bg-white/80 dark:bg-[#1E293B]/80 backdrop-blur-md rounded-[32px] p-6 lg:p-8 border border-[#EAEAEA] dark:border-white/10 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(230,0,45,0.12)] hover:border-[#E6002D]/30 transition-all duration-500 w-full group relative overflow-hidden",
+      "bg-white/80 backdrop-blur-md rounded-[32px] p-6 lg:p-8 border border-[#EAEAEA] shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(230,0,45,0.12)] hover:border-[#E6002D]/30 transition-all duration-500 w-full group relative overflow-hidden",
       align === 'right' ? "text-right" : "text-left"
     )}
   >
     {/* Large Background Number */}
     <div className={cn(
-      "absolute top-0 p-6 opacity-[0.03] dark:opacity-[0.05] dark:text-white group-hover:opacity-10 transition-opacity duration-500 pointer-events-none select-none",
+      "absolute top-0 p-6 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-500 pointer-events-none select-none",
       align === 'right' ? "left-0" : "right-0"
     )}>
       <span className="text-8xl lg:text-9xl font-black font-display tracking-tighter">{step.id}</span>
@@ -96,7 +96,7 @@ const JourneyCard = ({ step, align }) => (
 
     {/* Duration Badge */}
     <div className={cn(
-      "inline-flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-[#0F172A] border border-[#EAEAEA] dark:border-[#334155] rounded-full text-[10px] font-bold text-[#737373] dark:text-[#E2E8F0] tracking-widest uppercase mb-5 shadow-sm transition-colors duration-300 group-hover:border-[#E6002D]/30 group-hover:dark:border-[#E6002D]/30",
+      "inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-[#EAEAEA] rounded-full text-[10px] font-bold text-[#737373] tracking-widest uppercase mb-5 shadow-sm transition-colors duration-300 group-hover:border-[#E6002D]/30",
       align === 'right' && "flex-row-reverse"
     )}>
       <Clock className="w-3.5 h-3.5 text-[#E6002D]" />
@@ -104,10 +104,10 @@ const JourneyCard = ({ step, align }) => (
     </div>
 
     {/* Content */}
-    <Heading level="h4" className="text-[#111111] dark:text-white mb-3 group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D] transition-colors duration-300">
+    <Heading level="h4" className="text-[#111111] mb-3 group-hover:text-[#E6002D] transition-colors duration-300">
       {step.title}
     </Heading>
-    <Text variant="small" color="muted" className="leading-relaxed font-medium relative z-10 text-[#525252] dark:text-[#A3A3A3]">
+    <Text variant="small" color="muted" className="leading-relaxed font-medium relative z-10">
       {step.description}
     </Text>
   </motion.div>
@@ -115,14 +115,14 @@ const JourneyCard = ({ step, align }) => (
 
 export default function Journey() {
   return (
-    <Section className="relative bg-[#FAFAFA] dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FAFAFA] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Grid Pattern */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.1] text-[#111] dark:text-white"
+        className="absolute inset-0 z-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, currentColor 1px, transparent 1px),
-            linear-gradient(to bottom, currentColor 1px, transparent 1px)
+            linear-gradient(to right, #111 1px, transparent 1px),
+            linear-gradient(to bottom, #111 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse 60% 100% at 50% 50%, #000 0%, transparent 100%)',
@@ -133,7 +133,7 @@ export default function Journey() {
       <motion.div
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[30%] left-[20%] w-[60%] h-[40%] rounded-full bg-pink-200/40 dark:bg-pink-500/20 blur-[140px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"
+        className="absolute top-[30%] left-[20%] w-[60%] h-[40%] rounded-full bg-pink-200/40 blur-[140px] pointer-events-none mix-blend-multiply"
       />
 
       <Container className="relative z-10">
@@ -143,9 +143,9 @@ export default function Journey() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white dark:bg-white/10 px-4 py-1.5 shadow-sm mb-6"
+            className="flex items-center rounded-full border border-[#EAEAEA] bg-white px-4 py-1.5 shadow-sm mb-6"
           >
-            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
               Your Learning Journey
             </span>
           </motion.div>
@@ -157,11 +157,11 @@ export default function Journey() {
             transition={{ delay: 0.1 }}
             className="flex flex-col items-center w-full"
           >
-            <Heading level="h2" className="text-[#111111] dark:text-white mb-6 leading-tight text-center">
+            <Heading level="h2" className="text-[#111111] mb-6 leading-tight text-center">
               The Path To Your <br className="hidden sm:block" />
               <span className="text-[#E6002D]">Dream Tech Career</span>
             </Heading>
-            <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center text-[#525252] dark:text-[#A3A3A3]">
+            <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center">
               A meticulously crafted roadmap from enrolment to placement. We guide you through every step of your transformation.
             </Text>
           </motion.div>
@@ -185,7 +185,7 @@ export default function Journey() {
                 <div className="w-[20%] relative flex justify-center shrink-0">
                   {/* Milestone Node */}
                   <div className={cn(
-                    "absolute top-0 w-14 h-14 rounded-full border-[5px] border-white dark:border-[#0F172A] shadow-md z-20 flex items-center justify-center bg-white dark:bg-[#1E293B] text-[#EAEAEA] dark:text-[#334155] transition-colors duration-500 group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D]",
+                    "absolute top-0 w-14 h-14 rounded-full border-[5px] border-white shadow-md z-20 flex items-center justify-center bg-white text-[#EAEAEA] transition-colors duration-500 group-hover:text-[#E6002D]",
                     isEven ? "left-0 -translate-x-1/2" : "right-0 translate-x-1/2"
                   )}>
                     <step.icon className="w-5 h-5" />
@@ -203,7 +203,7 @@ export default function Journey() {
                       {/* Background Track */}
                       <path
                         d={isEven ? "M 0 0 C 0 50, 100 50, 100 100" : "M 100 0 C 100 50, 0 50, 0 100"}
-                        className="stroke-[#EAEAEA] dark:stroke-[#334155]"
+                        stroke="#EAEAEA"
                         strokeWidth="4"
                         fill="none"
                         vectorEffect="non-scaling-stroke"
@@ -242,11 +242,11 @@ export default function Journey() {
               <div key={step.id} className="relative flex w-full group">
                 {/* Vertical Line & Node */}
                 <div className="w-14 shrink-0 relative flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full border-4 border-[#FAFAFA] dark:border-[#0F172A] shadow-sm z-20 flex items-center justify-center bg-white dark:bg-[#1E293B] text-[#EAEAEA] dark:text-[#334155] transition-colors duration-500 group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D]">
+                  <div className="w-12 h-12 rounded-full border-4 border-[#FAFAFA] shadow-sm z-20 flex items-center justify-center bg-white text-[#EAEAEA] transition-colors duration-500 group-hover:text-[#E6002D]">
                     <step.icon className="w-5 h-5" />
                   </div>
                   {!isLast && (
-                    <div className="w-1 flex-1 bg-[#EAEAEA] dark:bg-[#334155] relative overflow-hidden my-[-2px] z-0">
+                    <div className="w-1 flex-1 bg-[#EAEAEA] relative overflow-hidden my-[-2px] z-0">
                       <motion.div
                         className="absolute top-0 left-0 right-0 bottom-0 bg-[#E6002D] origin-top"
                         initial={{ scaleY: 0 }}
@@ -273,7 +273,7 @@ export default function Journey() {
           viewport={{ once: true }}
           className="flex flex-col items-center justify-center mt-12 lg:mt-8 relative z-10"
         >
-          <Heading level="h4" className="text-[#111111] dark:text-white mb-8 text-center">
+          <Heading level="h4" className="text-[#111111] mb-8 text-center">
             Ready To Begin Your Journey?
           </Heading>
           <Button variant="primary" size="lg" className="rounded-full shadow-lg shadow-[#E6002D]/15 hover:shadow-[#E6002D]/30 px-10 h-14 font-semibold group">

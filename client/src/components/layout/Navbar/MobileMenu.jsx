@@ -37,13 +37,13 @@ export default function MobileMenu({ onClose }) {
         animate={{ x: 0 }}
         exit={{ x: "100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="relative w-[85%] max-w-sm h-full bg-white/90 dark:bg-[#0F172A]/90 backdrop-blur-2xl border-l border-[#EAEAEA] dark:border-white/10 shadow-2xl p-6 flex flex-col gap-8 rounded-l-[32px]"
+        className="relative w-[85%] max-w-sm h-full bg-[#121212]/80 backdrop-blur-2xl border-l border-white/10 shadow-2xl p-6 flex flex-col gap-8 rounded-l-[32px]"
       >
         <div className="flex items-center justify-between">
-          <span className="text-xl font-bold tracking-tight text-[#111111] dark:text-white font-display">
+          <span className="text-xl font-bold tracking-tight text-white font-display">
             Talentele<span className="text-[#E6002D]">.</span>
           </span>
-          <IconButton onClick={onClose} variant="ghost" className="text-[#525252] dark:text-white hover:bg-black/5 dark:hover:bg-white/10">
+          <IconButton onClick={onClose} variant="ghost" className="text-white hover:bg-white/10">
             <X className="h-6 w-6" />
           </IconButton>
         </div>
@@ -58,7 +58,7 @@ export default function MobileMenu({ onClose }) {
                 {hasSubmenu ? (
                   <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center justify-between text-lg font-medium text-[#111111] dark:text-white/90 hover:text-[#E6002D] dark:hover:text-[#E6002D] transition-colors w-full text-left"
+                    className="flex items-center justify-between text-lg font-medium text-white/90 hover:text-[#E6002D] transition-colors w-full text-left"
                   >
                     {item.label}
                     <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
@@ -71,7 +71,7 @@ export default function MobileMenu({ onClose }) {
                   <Link
                     href={item.href}
                     onClick={onClose}
-                    className="text-lg font-medium text-[#111111] dark:text-white/90 hover:text-[#E6002D] dark:hover:text-[#E6002D] transition-colors"
+                    className="text-lg font-medium text-white/90 hover:text-[#E6002D] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -83,13 +83,13 @@ export default function MobileMenu({ onClose }) {
                     animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
                     className="overflow-hidden"
                   >
-                    <div className="pl-4 flex flex-col gap-3 mt-2 border-l border-[#EAEAEA] dark:border-white/10 pb-2">
+                    <div className="pl-4 flex flex-col gap-3 mt-2 border-l border-white/10 pb-2">
                       {item.submenu.map((sub) => (
                         <Link
                           key={sub.label}
                           href={sub.href}
                           onClick={onClose}
-                          className="text-[#525252] dark:text-white/60 hover:text-[#E6002D] dark:hover:text-[#E6002D] transition-colors py-1"
+                          className="text-white/60 hover:text-[#E6002D] transition-colors py-1"
                         >
                           {sub.label}
                         </Link>

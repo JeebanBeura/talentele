@@ -85,14 +85,14 @@ export default function Projects() {
   const galleryProjects = filteredProjects.slice(1);
 
   return (
-    <Section className="relative bg-[#FAFAFA] dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FAFAFA] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Decoration */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.1] text-[#111] dark:text-white"
+        className="absolute inset-0 z-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, currentColor 1px, transparent 1px),
-            linear-gradient(to bottom, currentColor 1px, transparent 1px)
+            linear-gradient(to right, #111 1px, transparent 1px),
+            linear-gradient(to bottom, #111 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse 80% 50% at 50% 0%, #000 40%, transparent 100%)',
@@ -103,7 +103,7 @@ export default function Projects() {
       <motion.div
         animate={{ x: [0, -30, 30, 0], y: [0, 40, -40, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[10%] left-[10%] w-[40%] h-[40%] rounded-full bg-blue-300/30 dark:bg-blue-500/20 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"
+        className="absolute top-[10%] left-[10%] w-[40%] h-[40%] rounded-full bg-blue-300/30 blur-[120px] pointer-events-none mix-blend-multiply"
       />
 
       <Container className="relative z-10">
@@ -113,9 +113,9 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white dark:bg-white/10 px-4 py-1.5 shadow-sm mb-6"
+            className="flex items-center rounded-full border border-[#EAEAEA] bg-white px-4 py-1.5 shadow-sm mb-6"
           >
-            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
               Student Projects Showcase
             </span>
           </motion.div>
@@ -127,11 +127,11 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="flex flex-col items-center w-full"
           >
-            <Heading level="h2" className="text-[#111111] dark:text-white mb-6 leading-tight text-center">
+            <Heading level="h2" className="text-[#111111] mb-6 leading-tight text-center">
               Build Real Applications That <br className="hidden sm:block" />
               <span className="text-[#E6002D]">Employers Actually Want</span>
             </Heading>
-            <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center text-[#525252] dark:text-[#A3A3A3]">
+            <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center">
               Don't just write code. Architect premium, production-grade applications that solve real business problems and make your portfolio impossible to ignore.
             </Text>
           </motion.div>
@@ -145,7 +145,7 @@ export default function Projects() {
               onClick={() => setActiveCategory(category)}
               className={cn(
                 "relative px-5 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300",
-                activeCategory === category ? "text-white" : "text-[#525252] dark:text-[#D4D4D4] hover:text-[#111111] dark:hover:text-white bg-white dark:bg-[#1E293B] border border-[#EAEAEA] dark:border-[#334155] shadow-sm hover:shadow-md"
+                activeCategory === category ? "text-white" : "text-[#525252] hover:text-[#111111] bg-white border border-[#EAEAEA] shadow-sm hover:shadow-md"
               )}
             >
               {activeCategory === category && (
@@ -169,23 +169,23 @@ export default function Projects() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="w-full bg-white dark:bg-[#1E293B] rounded-[32px] md:rounded-[40px] p-6 md:p-10 border border-[#EAEAEA] dark:border-[#334155] shadow-lg mb-16 relative overflow-hidden group"
+              className="w-full bg-white rounded-[32px] md:rounded-[40px] p-6 md:p-10 border border-[#EAEAEA] shadow-lg mb-16 relative overflow-hidden group"
             >
               {/* Background Glow */}
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#E6002D]/10 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full" />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                 {/* Left: Interactive Mockup */}
-                <div className="w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-[#EAEAEA]/80 dark:border-[#334155] shadow-md relative group/mockup cursor-pointer">
+                <div className="w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden border border-[#EAEAEA]/80 shadow-md relative group/mockup cursor-pointer">
                   {/* CSS Browser Bar */}
-                  <div className="w-full h-10 bg-[#FAFAFA] dark:bg-[#0F172A] border-b border-[#EAEAEA] dark:border-[#334155] flex items-center px-4 gap-2 absolute top-0 z-20">
+                  <div className="w-full h-10 bg-[#FAFAFA] border-b border-[#EAEAEA] flex items-center px-4 gap-2 absolute top-0 z-20">
                     <div className="w-3 h-3 rounded-full bg-[#EF4444]" />
                     <div className="w-3 h-3 rounded-full bg-[#F59E0B]" />
                     <div className="w-3 h-3 rounded-full bg-[#10B981]" />
-                    <div className="mx-auto w-1/2 h-6 bg-white dark:bg-[#1E293B] border border-[#EAEAEA] dark:border-[#334155] rounded-md" />
+                    <div className="mx-auto w-1/2 h-6 bg-white border border-[#EAEAEA] rounded-md" />
                   </div>
                   {/* Image */}
-                  <div className="absolute top-10 bottom-0 left-0 right-0 overflow-hidden bg-white dark:bg-[#0F172A]">
+                  <div className="absolute top-10 bottom-0 left-0 right-0 overflow-hidden bg-white">
                     <img
                       src={featuredProject.image}
                       alt={featuredProject.title}
@@ -198,7 +198,7 @@ export default function Projects() {
                 {/* Right: Project Details */}
                 <div className="flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-6">
-                    <span className="px-3 py-1 bg-[#F5F5F5] dark:bg-[#0F172A] border border-[#EAEAEA] dark:border-[#334155] rounded-full text-[10px] font-bold tracking-widest uppercase text-[#525252] dark:text-[#E2E8F0]">
+                    <span className="px-3 py-1 bg-[#F5F5F5] border border-[#EAEAEA] rounded-full text-[10px] font-bold tracking-widest uppercase text-[#525252]">
                       {featuredProject.category}
                     </span>
                     <span className="px-3 py-1 bg-[#16A34A]/10 border border-[#16A34A]/20 rounded-full text-[10px] font-bold tracking-widest uppercase text-[#16A34A]">
@@ -206,28 +206,28 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  <Heading level="h3" className="text-[#111111] dark:text-white mb-4 group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D] transition-colors duration-300">
+                  <Heading level="h3" className="text-[#111111] mb-4 group-hover:text-[#E6002D] transition-colors duration-300">
                     {featuredProject.title}
                   </Heading>
 
-                  <Text variant="body" color="muted" className="mb-8 leading-relaxed text-[#525252] dark:text-[#94A3B8]">
+                  <Text variant="body" color="muted" className="mb-8 leading-relaxed">
                     {featuredProject.description}
                   </Text>
 
                   {/* Meta Grid */}
-                  <div className="grid grid-cols-2 gap-6 mb-8 border-t border-[#EAEAEA] dark:border-[#334155] pt-6">
+                  <div className="grid grid-cols-2 gap-6 mb-8 border-t border-[#EAEAEA] pt-6">
                     <div>
-                      <Text variant="small" className="text-[#737373] dark:text-[#94A3B8] uppercase tracking-wider font-bold mb-1 text-[10px]">Student Creator</Text>
-                      <div className="font-semibold text-[#111111] dark:text-white flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-[#EAEAEA] dark:bg-[#334155] flex items-center justify-center text-[#525252] dark:text-[#E2E8F0] text-xs">
+                      <Text variant="small" className="text-[#737373] uppercase tracking-wider font-bold mb-1 text-[10px]">Student Creator</Text>
+                      <div className="font-semibold text-[#111111] flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-[#EAEAEA] flex items-center justify-center text-[#525252] text-xs">
                           {featuredProject.studentName.charAt(0)}
                         </div>
                         {featuredProject.studentName}
                       </div>
                     </div>
                     <div>
-                      <Text variant="small" className="text-[#737373] dark:text-[#94A3B8] uppercase tracking-wider font-bold mb-1 text-[10px]">Project Status</Text>
-                      <div className="font-semibold text-[#111111] dark:text-white flex items-center gap-2">
+                      <Text variant="small" className="text-[#737373] uppercase tracking-wider font-bold mb-1 text-[10px]">Project Status</Text>
+                      <div className="font-semibold text-[#111111] flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-[#16A34A]" />
                         {featuredProject.status}
                       </div>
@@ -237,7 +237,7 @@ export default function Projects() {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-8">
                     {featuredProject.techStack.map(tech => (
-                      <span key={tech} className="px-3 py-1.5 bg-[#FAFAFA] dark:bg-[#0F172A] border border-[#EAEAEA] dark:border-[#334155] rounded-lg text-xs font-semibold text-[#111111] dark:text-white flex items-center gap-1.5 shadow-sm transition-colors hover:border-[#E6002D]/30 group-hover:dark:border-[#E6002D]/30">
+                      <span key={tech} className="px-3 py-1.5 bg-[#FAFAFA] border border-[#EAEAEA] rounded-lg text-xs font-semibold text-[#111111] flex items-center gap-1.5 shadow-sm transition-colors hover:border-[#E6002D]/30">
                         <Code2 className="w-3.5 h-3.5 text-[#E6002D]" />
                         {tech}
                       </span>
@@ -250,7 +250,7 @@ export default function Projects() {
                       <ExternalLink className="w-4 h-4 mr-2" />
                       Live Demo
                     </Button>
-                    <Button variant="outline" className="rounded-xl px-6 py-3 font-semibold border-[#EAEAEA] dark:border-[#334155] text-[#111111] dark:text-white hover:bg-[#FAFAFA] dark:hover:bg-[#0F172A]">
+                    <Button variant="outline" className="rounded-xl px-6 py-3 font-semibold border-[#EAEAEA] text-[#111111] hover:bg-[#FAFAFA]">
                       <Code2 className="w-4 h-4 mr-2" />
                       View Source
                     </Button>
@@ -279,13 +279,13 @@ export default function Projects() {
                 key={project.id}
                 className="group snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[380px] flex flex-col relative transition-all duration-300"
               >
-                <div className="flex flex-col h-full bg-white dark:bg-[#1E293B] rounded-[28px] border border-[#EAEAEA] dark:border-[#334155] p-3 shadow-sm hover:shadow-xl hover:border-[#E6002D]/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
+                <div className="flex flex-col h-full bg-white rounded-[28px] border border-[#EAEAEA] p-3 shadow-sm hover:shadow-xl hover:border-[#E6002D]/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
 
                   {/* Glass Glow on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#E6002D]/5 dark:to-[#E6002D]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#E6002D]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                   {/* Image Header */}
-                  <div className="relative w-full h-[200px] rounded-[20px] overflow-hidden mb-5 border border-[#EAEAEA]/50 dark:border-[#334155] bg-[#FAFAFA] dark:bg-[#0F172A]">
+                  <div className="relative w-full h-[200px] rounded-[20px] overflow-hidden mb-5 border border-[#EAEAEA]/50 bg-[#FAFAFA]">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -308,30 +308,30 @@ export default function Projects() {
 
                   {/* Body */}
                   <div className="px-3 pb-3 flex flex-col flex-1 z-10">
-                    <Heading level="h5" className="text-[#111111] dark:text-white mb-2 leading-tight group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D] transition-colors duration-300">
+                    <Heading level="h5" className="text-[#111111] mb-2 leading-tight group-hover:text-[#E6002D] transition-colors duration-300">
                       {project.title}
                     </Heading>
 
-                    <Text variant="small" color="muted" className="mb-5 line-clamp-2 leading-relaxed text-[#525252] dark:text-[#94A3B8]">
+                    <Text variant="small" color="muted" className="mb-5 line-clamp-2 leading-relaxed">
                       {project.description}
                     </Text>
 
                     {/* Tech Badges */}
                     <div className="flex flex-wrap gap-1.5 mt-auto mb-5">
                       {project.techStack.slice(0, 3).map(tech => (
-                        <span key={tech} className="px-2 py-1 bg-[#FAFAFA] dark:bg-[#0F172A] rounded-md text-[11px] font-semibold text-[#737373] dark:text-[#94A3B8] border border-[#EAEAEA] dark:border-[#334155]">
+                        <span key={tech} className="px-2 py-1 bg-[#FAFAFA] rounded-md text-[11px] font-semibold text-[#737373] border border-[#EAEAEA]">
                           {tech}
                         </span>
                       ))}
                       {project.techStack.length > 3 && (
-                        <span className="px-2 py-1 bg-[#FAFAFA] dark:bg-[#0F172A] rounded-md text-[11px] font-semibold text-[#737373] dark:text-[#94A3B8] border border-[#EAEAEA] dark:border-[#334155]">
+                        <span className="px-2 py-1 bg-[#FAFAFA] rounded-md text-[11px] font-semibold text-[#737373] border border-[#EAEAEA]">
                           +{project.techStack.length - 3}
                         </span>
                       )}
                     </div>
 
                     {/* Divider */}
-                    <div className="w-full h-[1px] bg-[#EAEAEA] dark:bg-[#334155] mb-4" />
+                    <div className="w-full h-[1px] bg-[#EAEAEA] mb-4" />
 
                     {/* Footer Stats */}
                     <div className="flex items-center justify-between">
@@ -339,7 +339,7 @@ export default function Projects() {
                         <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-xs font-bold">
                           {project.studentName.charAt(0)}
                         </div>
-                        <span className="text-xs font-bold text-[#111111] dark:text-white">{project.studentName}</span>
+                        <span className="text-xs font-bold text-[#111111]">{project.studentName}</span>
                       </div>
 
                       <div className="text-[10px] font-bold tracking-widest uppercase text-[#A3A3A3]">
@@ -356,7 +356,7 @@ export default function Projects() {
 
       {/* Explore All CTA */}
       <div className="flex justify-center relative z-10 mt-4">
-        <Button variant="outline" size="lg" className="rounded-full shadow-sm px-8 font-semibold group border-[#EAEAEA] dark:border-[#334155] text-[#111111] dark:text-white hover:border-[#E6002D] dark:hover:border-[#E6002D] hover:bg-[#E6002D]/5 dark:hover:bg-[#E6002D]/10 h-12">
+        <Button variant="outline" size="lg" className="rounded-full shadow-sm px-8 font-semibold group border-[#EAEAEA] hover:border-[#E6002D] hover:bg-[#E6002D]/5 h-12">
           Explore Student Portfolio
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-[#E6002D]" />
         </Button>

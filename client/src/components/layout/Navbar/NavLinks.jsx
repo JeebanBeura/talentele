@@ -20,7 +20,7 @@ export default function NavLinks() {
               href={item.href}
               className={cn(
                 "flex items-center gap-1 text-sm font-medium transition-colors duration-300",
-                isActive ? "text-[#E6002D]" : "text-[#525252] dark:text-[#A3A3A3] hover:text-[#E6002D] dark:hover:text-[#E6002D]"
+                isActive ? "text-[#E6002D]" : "text-[#525252] hover:text-[#E6002D]"
               )}
             >
               {item.label}
@@ -40,12 +40,12 @@ export default function NavLinks() {
             {/* Dropdown Menu */}
             {item.submenu && (
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-56">
-                <div className="bg-white/90 dark:bg-[#0F172A]/90 backdrop-blur-xl border border-[#EAEAEA] dark:border-[#1E293B] rounded-2xl p-2 shadow-xl flex flex-col gap-1">
+                <div className="bg-white/90 backdrop-blur-xl border border-[#EAEAEA] rounded-2xl p-2 shadow-xl flex flex-col gap-1">
                   {item.submenu.map((sub) => (
                     <Link
                       key={sub.label}
                       href={sub.href}
-                      className="px-4 py-2.5 text-sm text-[#525252] dark:text-[#D4D4D4] hover:text-[#E6002D] hover:bg-[#F5F5F5] dark:hover:bg-[#1E293B] rounded-xl transition-colors"
+                      className="px-4 py-2.5 text-sm text-[#525252] hover:text-[#E6002D] hover:bg-[#F5F5F5] rounded-xl transition-colors"
                     >
                       {sub.label}
                     </Link>

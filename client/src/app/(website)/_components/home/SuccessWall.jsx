@@ -130,14 +130,14 @@ export default function SuccessWall() {
   };
 
   return (
-    <Section className="relative bg-[#FFFFFF] dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FFFFFF] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Decoration */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.1] text-[#111] dark:text-white"
+        className="absolute inset-0 z-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, currentColor 1px, transparent 1px),
-            linear-gradient(to bottom, currentColor 1px, transparent 1px)
+            linear-gradient(to right, #111 1px, transparent 1px),
+            linear-gradient(to bottom, #111 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
         }}
@@ -146,7 +146,7 @@ export default function SuccessWall() {
       <motion.div
         animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.4, 0.3] }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-red-100/40 dark:bg-red-500/10 blur-[150px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"
+        className="absolute top-[10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-red-100/40 blur-[150px] pointer-events-none mix-blend-multiply"
       />
 
       <Container className="relative z-10">
@@ -158,9 +158,9 @@ export default function SuccessWall() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center rounded-full border border-[#EAEAEA] dark:border-[#334155] bg-[#FAFAFA] dark:bg-[#1E293B] px-4 py-1.5 shadow-sm mb-6 self-start"
+              className="inline-flex items-center rounded-full border border-[#EAEAEA] bg-[#FAFAFA] px-4 py-1.5 shadow-sm mb-6 self-start"
             >
-              <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
+              <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
                 Alumni Network
               </span>
             </motion.div>
@@ -171,12 +171,12 @@ export default function SuccessWall() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <Heading level="h2" className="text-[#111111] dark:text-white mb-6 leading-tight">
+              <Heading level="h2" className="text-[#111111] mb-6 leading-tight">
                 Strong Alumni <br className="hidden lg:block" />
                 <span className="text-[#E6002D]">Network</span>
               </Heading>
 
-              <Text variant="bodyLarge" color="muted" className="mb-10 font-medium leading-relaxed text-[#525252] dark:text-[#A3A3A3]">
+              <Text variant="bodyLarge" color="muted" className="mb-10 font-medium leading-relaxed">
                 "Our alumni are building startups, leading engineering teams and creating innovative products across India and globally."
               </Text>
             </motion.div>
@@ -197,7 +197,7 @@ export default function SuccessWall() {
           {/* RIGHT: Grid Slider (70%) */}
           <div className="w-full lg:w-[70%] relative">
             {/* Fade edge for smooth scroll effect */}
-            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#FFFFFF] dark:from-[#0F172A] to-transparent z-20 pointer-events-none hidden lg:block" />
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#FFFFFF] to-transparent z-20 pointer-events-none hidden lg:block" />
 
             <div
               ref={scrollRef}
@@ -224,7 +224,7 @@ export default function SuccessWall() {
                   className="snap-start w-full h-full"
                 >
                   <div className={cn(
-                    "group relative overflow-hidden rounded-[28px] border border-[#EAEAEA] dark:border-[#334155] bg-white dark:bg-[#1E293B] shadow-sm transition-all duration-300",
+                    "group relative overflow-hidden rounded-[28px] border border-[#EAEAEA] bg-white shadow-sm transition-all duration-300",
                     "hover:-translate-y-1 hover:shadow-lg hover:border-[#E6002D]/40",
                     "flex min-h-[220px] h-full"
                   )}>
@@ -234,17 +234,17 @@ export default function SuccessWall() {
                     {/* Left side text (55%) */}
                     <div className="flex flex-col w-[55%] p-5 pr-2 z-10 relative">
                       <div className="flex items-center gap-2 mb-4">
-                        <div className="w-8 h-8 rounded-full bg-white dark:bg-[#0F172A] border border-[#EAEAEA] dark:border-[#334155] shadow-sm flex items-center justify-center font-black text-[#111111] dark:text-white text-xs transition-colors duration-300 group-hover:text-[#E6002D] filter grayscale group-hover:grayscale-0">
+                        <div className="w-8 h-8 rounded-full bg-white border border-[#EAEAEA] shadow-sm flex items-center justify-center font-black text-[#111111] text-xs transition-colors duration-300 group-hover:text-[#E6002D] filter grayscale group-hover:grayscale-0">
                           {alumni.company.charAt(0)}
                         </div>
-                        <span className="font-bold text-[#111111] dark:text-white text-xs tracking-tight">{alumni.company}</span>
+                        <span className="font-bold text-[#111111] text-xs tracking-tight">{alumni.company}</span>
                       </div>
 
-                      <Heading level="h5" className="text-[#111111] dark:text-white text-[17px] leading-tight mb-1">{alumni.name}</Heading>
-                      <Text variant="small" className="font-semibold text-[#737373] dark:text-[#94A3B8] text-[13px] leading-snug line-clamp-2 mb-4">{alumni.role}</Text>
+                      <Heading level="h5" className="text-[#111111] text-[17px] leading-tight mb-1">{alumni.name}</Heading>
+                      <Text variant="small" className="font-semibold text-[#737373] text-[13px] leading-snug line-clamp-2 mb-4">{alumni.role}</Text>
 
                       <div className="mt-auto">
-                        <span className="text-[10px] font-bold text-[#525252] dark:text-[#E2E8F0] bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-sm border border-[#EAEAEA] dark:border-[#334155] px-2.5 py-1 rounded-md uppercase tracking-wider flex items-center gap-1.5 w-fit">
+                        <span className="text-[10px] font-bold text-[#525252] bg-white/80 backdrop-blur-sm border border-[#EAEAEA] px-2.5 py-1 rounded-md uppercase tracking-wider flex items-center gap-1.5 w-fit">
                           <GraduationCap className="w-3 h-3 text-[#E6002D]" />
                           {alumni.batch}
                         </span>
@@ -252,9 +252,9 @@ export default function SuccessWall() {
                     </div>
 
                     {/* Right side image (45%) */}
-                    <div className="absolute right-0 top-0 bottom-0 w-[45%] h-full z-0 overflow-hidden bg-[#FAFAFA] dark:bg-[#0F172A]">
+                    <div className="absolute right-0 top-0 bottom-0 w-[45%] h-full z-0 overflow-hidden bg-[#FAFAFA]">
                       {/* Gradient mask to blend image on the left edge smoothly into the card */}
-                      <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white dark:from-[#1E293B] to-transparent z-10 pointer-events-none" />
+                      <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
                       <img
                         src={alumni.image}
                         alt={alumni.name}
@@ -270,14 +270,14 @@ export default function SuccessWall() {
             <div className="flex items-center justify-center gap-4 mt-6">
               <button
                 onClick={() => scroll("left")}
-                className="w-12 h-12 rounded-full border border-[#EAEAEA] dark:border-[#334155] bg-white dark:bg-[#1E293B] text-[#111111] dark:text-white flex items-center justify-center hover:bg-[#FAFAFA] dark:hover:bg-[#0F172A] hover:text-[#E6002D] transition-colors shadow-sm"
+                className="w-12 h-12 rounded-full border border-[#EAEAEA] bg-white text-[#111111] flex items-center justify-center hover:bg-[#FAFAFA] hover:text-[#E6002D] transition-colors shadow-sm"
                 aria-label="Previous slide"
               >
                 <ArrowRight className="w-5 h-5 rotate-180" />
               </button>
               <button
                 onClick={() => scroll("right")}
-                className="w-12 h-12 rounded-full border border-[#EAEAEA] dark:border-[#334155] bg-white dark:bg-[#1E293B] text-[#111111] dark:text-white flex items-center justify-center hover:bg-[#FAFAFA] dark:hover:bg-[#0F172A] hover:text-[#E6002D] transition-colors shadow-sm"
+                className="w-12 h-12 rounded-full border border-[#EAEAEA] bg-white text-[#111111] flex items-center justify-center hover:bg-[#FAFAFA] hover:text-[#E6002D] transition-colors shadow-sm"
                 aria-label="Next slide"
               >
                 <ArrowRight className="w-5 h-5" />
