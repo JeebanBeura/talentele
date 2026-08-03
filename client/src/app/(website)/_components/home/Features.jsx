@@ -78,14 +78,14 @@ export default function Features() {
   }, []);
 
   return (
-    <Section className="relative bg-[#FAFAFA] pt-10 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FAFAFA] dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Layers */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.04]"
+        className="absolute inset-0 z-0 opacity-[0.04] dark:opacity-[0.1] text-[#111] dark:text-white"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #111 1px, transparent 1px),
-            linear-gradient(to bottom, #111 1px, transparent 1px)
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 100%)',
@@ -94,9 +94,9 @@ export default function Features() {
       />
 
       <div
-        className="absolute inset-0 z-0 opacity-[0.3]"
+        className="absolute inset-0 z-0 opacity-[0.3] dark:opacity-[0.1] text-[#111] dark:text-white"
         style={{
-          backgroundImage: 'radial-gradient(#111 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(currentColor 1px, transparent 1px)',
           backgroundSize: '24px 24px',
           maskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, #000 20%, transparent 100%)',
           WebkitMaskImage: 'radial-gradient(ellipse 50% 50% at 50% 50%, #000 20%, transparent 100%)',
@@ -106,12 +106,12 @@ export default function Features() {
       <motion.div
         animate={{ x: [0, -40, 40, 0], y: [0, 40, -40, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[20%] left-[20%] w-[30%] h-[40%] rounded-full bg-[#E6002D]/5 blur-[120px] pointer-events-none"
+        className="absolute top-[20%] left-[20%] w-[30%] h-[40%] rounded-full bg-[#E6002D]/5 dark:bg-[#E6002D]/10 blur-[120px] pointer-events-none"
       />
       <motion.div
         animate={{ x: [0, 40, -40, 0], y: [0, -30, 30, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[20%] right-[20%] w-[35%] h-[45%] rounded-full bg-slate-300/30 blur-[100px] pointer-events-none"
+        className="absolute bottom-[20%] right-[20%] w-[35%] h-[45%] rounded-full bg-slate-300/30 dark:bg-slate-800/30 blur-[100px] pointer-events-none"
       />
 
       {/* Center Header */}
@@ -120,9 +120,9 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-center rounded-full border border-[#EAEAEA] bg-white/50 backdrop-blur-sm px-4 py-1.5 shadow-sm"
+          className="flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white/50 dark:bg-white/10 backdrop-blur-sm px-4 py-1.5 shadow-sm"
         >
-          <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
+          <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
             Why Choose Talentele
           </span>
         </motion.div>
@@ -134,12 +134,12 @@ export default function Features() {
           transition={{ delay: 0.1 }}
           className="flex flex-col items-center w-full"
         >
-          <Heading level="h1" className="text-[#111111] mb-6 leading-tight text-center">
+          <Heading level="h1" className="text-[#111111] dark:text-white mb-6 leading-tight text-center">
             Everything You Need To <br className="hidden sm:block" />
             <span className="text-[#E6002D]">Launch Your Career</span>
           </Heading>
 
-          <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center">
+          <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center text-[#525252] dark:text-[#A3A3A3]">
             We replace traditional theory with practical, industry-aligned training so you can walk into your first day on the job fully prepared and confident.
           </Text>
         </motion.div>
@@ -162,23 +162,22 @@ export default function Features() {
                 className={cn(
                   "feature-card snap-start shrink-0 w-[85vw] sm:w-[320px] lg:w-[380px] rounded-3xl p-6 flex flex-col transition-all duration-300 border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6002D] group",
                   isActive
-                    ? "bg-white border-[#E6002D]/30 shadow-[0_12px_30px_-10px_rgba(230,0,45,0.12)] -translate-y-1"
-                    : "bg-white/80 border-[#EAEAEA] shadow-sm hover:shadow-md hover:bg-white"
+                    ? "bg-white dark:bg-[#1E293B] border-[#E6002D]/30 shadow-[0_12px_30px_-10px_rgba(230,0,45,0.12)] -translate-y-1"
+                    : "bg-white/80 dark:bg-[#0F172A]/80 border-[#EAEAEA] dark:border-[#334155] shadow-sm hover:shadow-md hover:bg-white hover:dark:bg-[#1E293B]"
                 )}
                 tabIndex={0}
               >
 
 
-                {/* Card Content */}
                 <div className="flex flex-col gap-2">
-                  <Heading level="h5" className="text-[#111111]">{feature.title}</Heading>
-                  <Text variant="small" color="muted" className="leading-relaxed font-medium">{feature.description}</Text>
+                  <Heading level="h5" className="text-[#111111] dark:text-white">{feature.title}</Heading>
+                  <Text variant="small" color="muted" className="leading-relaxed font-medium text-[#737373] dark:text-[#94A3B8]">{feature.description}</Text>
                 </div>
 
                 {/* Illustration Image */}
-                <div className="mt-6 w-full h-[180px] rounded-2xl relative overflow-hidden group-hover:shadow-md transition-all duration-500 border border-[#EAEAEA]/50">
+                <div className="mt-6 w-full h-[180px] rounded-2xl relative overflow-hidden group-hover:shadow-md transition-all duration-500 border border-[#EAEAEA]/50 dark:border-white/10">
                   <div className={cn(
-                    "absolute inset-0 bg-black/5 transition-opacity duration-500 z-10",
+                    "absolute inset-0 bg-black/5 dark:bg-black/20 transition-opacity duration-500 z-10",
                     isActive ? "opacity-0" : "opacity-100 group-hover:opacity-0"
                   )} />
                   {feature.image ? (
@@ -191,15 +190,15 @@ export default function Features() {
                       )}
                     />
                   ) : (
-                    <div className="w-full h-full bg-[#FAFAFA] flex items-center justify-center">
-                      <feature.icon className="w-16 h-16 text-[#EAEAEA]" />
+                    <div className="w-full h-full bg-[#FAFAFA] dark:bg-[#0F172A] flex items-center justify-center">
+                      <feature.icon className="w-16 h-16 text-[#EAEAEA] dark:text-[#334155]" />
                     </div>
                   )}
                 </div>
 
                 {/* Learn More */}
                 <div className="mt-6 flex items-center gap-2 text-sm font-bold tracking-wide uppercase transition-colors duration-300 cursor-pointer">
-                  <span className={isActive ? "text-[#E6002D]" : "text-[#111111]"}>Learn More</span>
+                  <span className={isActive ? "text-[#E6002D]" : "text-[#111111] dark:text-white"}>Learn More</span>
                   <ArrowRight className={cn("h-4 w-4 transition-transform duration-300", isActive && "translate-x-1 text-[#E6002D]")} />
                 </div>
               </div>
@@ -221,7 +220,7 @@ export default function Features() {
             }}
             className={cn(
               "h-2 rounded-full transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#E6002D]",
-              activeIndex === idx ? "w-8 bg-[#E6002D]" : "w-2 bg-[#D4D4D4] hover:bg-[#A3A3A3]"
+              activeIndex === idx ? "w-8 bg-[#E6002D]" : "w-2 bg-[#D4D4D4] hover:bg-[#A3A3A3] dark:bg-[#334155] dark:hover:bg-[#475569]"
             )}
             aria-label={`Go to feature slide ${idx + 1}`}
           />

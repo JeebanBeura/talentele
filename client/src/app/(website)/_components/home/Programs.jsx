@@ -80,14 +80,14 @@ export default function Programs() {
     : PROGRAMS.filter(p => p.category === activeCategory);
 
   return (
-    <Section className="relative bg-white pt-10 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-white dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Layers */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.03]"
+        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.1] text-[#111] dark:text-white"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #111 1px, transparent 1px),
-            linear-gradient(to bottom, #111 1px, transparent 1px)
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, #000 40%, transparent 100%)',
@@ -98,7 +98,7 @@ export default function Programs() {
       <motion.div
         animate={{ x: [0, 30, -30, 0], y: [0, -40, 40, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[20%] right-[10%] w-[40%] h-[50%] rounded-full bg-[#E6002D]/5 blur-[120px] pointer-events-none"
+        className="absolute top-[20%] right-[10%] w-[40%] h-[50%] rounded-full bg-[#E6002D]/5 dark:bg-[#E6002D]/10 blur-[120px] pointer-events-none"
       />
 
       <Container className="relative z-10">
@@ -108,9 +108,9 @@ export default function Programs() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center rounded-full border border-[#EAEAEA] bg-white/50 backdrop-blur-sm px-4 py-1.5 shadow-sm mb-6"
+            className="flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white/50 dark:bg-white/10 backdrop-blur-sm px-4 py-1.5 shadow-sm mb-6"
           >
-            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
               Featured Programs
             </span>
           </motion.div>
@@ -122,11 +122,11 @@ export default function Programs() {
             transition={{ delay: 0.1 }}
             className="flex flex-col items-center w-full"
           >
-            <Heading level="h2" className="text-[#111111] mb-6 leading-tight text-center">
+            <Heading level="h2" className="text-[#111111] dark:text-white mb-6 leading-tight text-center">
               Accelerate Your Growth With <br className="hidden sm:block" />
               <span className="text-[#E6002D]">Industry-Vetted Programs</span>
             </Heading>
-            <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center">
+            <Text variant="bodyLarge" color="muted" className="max-w-2xl mx-auto text-center text-[#525252] dark:text-[#A3A3A3]">
               Learn directly from top engineers and designers. Build real-world projects, get mentored, and land your dream job.
             </Text>
           </motion.div>
@@ -140,7 +140,7 @@ export default function Programs() {
               onClick={() => setActiveCategory(category)}
               className={cn(
                 "relative px-5 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300",
-                activeCategory === category ? "text-white" : "text-[#525252] hover:text-[#111111] bg-white border border-[#EAEAEA]"
+                activeCategory === category ? "text-white" : "text-[#525252] dark:text-[#D4D4D4] hover:text-[#111111] dark:hover:text-white bg-white dark:bg-[#1E293B] border border-[#EAEAEA] dark:border-[#334155]"
               )}
             >
               {activeCategory === category && (
@@ -173,13 +173,13 @@ export default function Programs() {
                 key={program.id}
                 className="group snap-start shrink-0 w-[85vw] sm:w-[360px] lg:w-[400px] flex flex-col relative transition-all duration-300"
               >
-                <div className="flex flex-col h-full bg-white rounded-[32px] border border-[#EAEAEA] p-3 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(230,0,45,0.12)] hover:border-[#E6002D]/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
+                <div className="flex flex-col h-full bg-white dark:bg-[#1E293B] rounded-[32px] border border-[#EAEAEA] dark:border-[#334155] p-3 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(230,0,45,0.12)] hover:border-[#E6002D]/30 transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
 
                   {/* Glass Glow on Hover */}
                   <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-bl from-[#E6002D]/20 to-pink-300/20 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
 
                   {/* Image Header */}
-                  <div className="relative w-full h-[220px] rounded-[24px] overflow-hidden mb-5 border border-[#EAEAEA]/50">
+                  <div className="relative w-full h-[220px] rounded-[24px] overflow-hidden mb-5 border border-[#EAEAEA]/50 dark:border-white/10">
                     <img
                       src={program.image}
                       alt={program.title}
@@ -209,18 +209,18 @@ export default function Programs() {
 
                   {/* Body */}
                   <div className="px-3 pb-3 flex flex-col flex-1 z-10">
-                    <Heading level="h4" className="text-[#111111] mb-2 leading-tight group-hover:text-[#E6002D] transition-colors duration-300">
+                    <Heading level="h4" className="text-[#111111] dark:text-white mb-2 leading-tight group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D] transition-colors duration-300">
                       {program.title}
                     </Heading>
 
-                    <Text variant="small" color="muted" className="mb-5 line-clamp-2">
+                    <Text variant="small" color="muted" className="mb-5 line-clamp-2 text-[#525252] dark:text-[#94A3B8]">
                       {program.description}
                     </Text>
 
                     {/* Features list */}
                     <div className="flex flex-wrap gap-2 mb-5">
                       {program.skills.map(skill => (
-                        <span key={skill} className="px-3 py-1 bg-[#FAFAFA] rounded-lg text-xs font-semibold text-[#525252] border border-[#EAEAEA]">
+                        <span key={skill} className="px-3 py-1 bg-[#FAFAFA] dark:bg-[#0F172A] rounded-lg text-xs font-semibold text-[#525252] dark:text-[#E2E8F0] border border-[#EAEAEA] dark:border-[#334155]">
                           {skill}
                         </span>
                       ))}
@@ -234,18 +234,18 @@ export default function Programs() {
                     </div>
 
                     {/* Divider */}
-                    <div className="w-full h-[1px] bg-[#EAEAEA] mb-4" />
+                    <div className="w-full h-[1px] bg-[#EAEAEA] dark:bg-[#334155] mb-4" />
 
                     {/* Footer Stats & CTA */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1">
                           <Star className="w-4 h-4 fill-[#F59E0B] text-[#F59E0B]" />
-                          <span className="text-sm font-bold text-[#111111]">{program.rating}</span>
+                          <span className="text-sm font-bold text-[#111111] dark:text-white">{program.rating}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <Users className="w-4 h-4 text-[#737373]" />
-                          <span className="text-sm font-medium text-[#737373]">{program.learners}</span>
+                          <Users className="w-4 h-4 text-[#737373] dark:text-[#94A3B8]" />
+                          <span className="text-sm font-medium text-[#737373] dark:text-[#94A3B8]">{program.learners}</span>
                         </div>
                       </div>
 
@@ -263,7 +263,7 @@ export default function Programs() {
 
       {/* Explore All CTA */}
       <div className="flex justify-center relative z-10">
-        <Button variant="outline" size="lg" className="rounded-full shadow-sm px-8 font-semibold group border-[#EAEAEA] hover:border-[#E6002D] hover:bg-[#E6002D]/5 h-12">
+        <Button variant="outline" size="lg" className="rounded-full shadow-sm px-8 font-semibold group border-[#EAEAEA] dark:border-[#334155] hover:border-[#E6002D] dark:hover:border-[#E6002D] hover:bg-[#E6002D]/5 dark:hover:bg-[#E6002D]/10 dark:text-white h-12">
           Explore All Programs
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 text-[#E6002D]" />
         </Button>

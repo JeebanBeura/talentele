@@ -43,14 +43,14 @@ const STATS = [
 
 export default function Statistics() {
   return (
-    <Section className="relative bg-[#FAFAFA] pt-10 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FAFAFA] dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Layers matching Hero */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.05]"
+        className="absolute inset-0 z-0 opacity-[0.05] dark:opacity-[0.1] text-[#111] dark:text-white"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #111 1px, transparent 1px),
-            linear-gradient(to bottom, #111 1px, transparent 1px)
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000 60%, transparent 100%)',
@@ -63,7 +63,7 @@ export default function Statistics() {
           y: [0, 30, -30, 0],
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[10%] right-[20%] w-[40%] h-[50%] rounded-full bg-pink-300/15 blur-[120px] pointer-events-none"
+        className="absolute top-[10%] right-[20%] w-[40%] h-[50%] rounded-full bg-pink-300/15 dark:bg-pink-500/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen pointer-events-none"
       />
 
       <Container className="relative z-10">
@@ -77,8 +77,8 @@ export default function Statistics() {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <div className="flex items-center rounded-full border border-[#EAEAEA] bg-white px-4 py-1.5 shadow-sm">
-                <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
+              <div className="flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white dark:bg-white/10 px-4 py-1.5 shadow-sm">
+                <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
                   Trusted by 10,000+ Students
                 </span>
               </div>
@@ -90,11 +90,11 @@ export default function Statistics() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Heading level="h1" className="text-[#111111] leading-[1.1] mb-6">
+              <Heading level="h1" className="text-[#111111] dark:text-white leading-[1.1] mb-6">
                 Numbers That <span className="text-[#E6002D]">Speak</span> for Themselves
               </Heading>
 
-              <Text variant="bodyLarge" color="muted" className="max-w-md">
+              <Text variant="bodyLarge" color="muted" className="max-w-md text-[#525252] dark:text-[#A3A3A3]">
                 Our proven methodology and industry connections guarantee that your career gets the momentum it deserves.
               </Text>
             </motion.div>
@@ -133,17 +133,17 @@ export default function Statistics() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, delay: index * 0.1, type: "spring", stiffness: 100 }}
-                    className={`relative flex flex-col items-center justify-between w-[150px] lg:w-[130px] shrink-0 pt-6 pb-8 px-4 rounded-t-full bg-white/70 backdrop-blur-xl border border-white/80 shadow-md snap-center group transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(230,0,45,0.15)] hover:-translate-y-4 ${stat.height}`}
+                    className={`relative flex flex-col items-center justify-between w-[150px] lg:w-[130px] shrink-0 pt-6 pb-8 px-4 rounded-t-full bg-white/70 dark:bg-[#1E293B]/70 backdrop-blur-xl border border-white/80 dark:border-white/10 shadow-md snap-center group transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(230,0,45,0.15)] hover:-translate-y-4 ${stat.height}`}
                   >
-                    <div className="w-14 h-14 rounded-full bg-[#FAFAFA] border border-[#EAEAEA] flex items-center justify-center text-[#525252] group-hover:bg-[#E6002D]/10 group-hover:text-[#E6002D] group-hover:border-transparent transition-colors duration-300 shadow-sm">
+                    <div className="w-14 h-14 rounded-full bg-[#FAFAFA] dark:bg-[#0F172A] border border-[#EAEAEA] dark:border-[#334155] flex items-center justify-center text-[#525252] dark:text-[#E2E8F0] group-hover:bg-[#E6002D]/10 group-hover:dark:bg-[#E6002D]/20 group-hover:text-[#E6002D] group-hover:dark:text-[#E6002D] group-hover:border-transparent group-hover:dark:border-transparent transition-colors duration-300 shadow-sm">
                       <Icon className="w-6 h-6" />
                     </div>
 
                     <div className="flex flex-col items-center text-center gap-2 mt-auto">
-                      <div className="text-2xl font-bold tracking-tight text-[#111111] font-display flex items-center">
+                      <div className="text-2xl font-bold tracking-tight text-[#111111] dark:text-white font-display flex items-center">
                         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                       </div>
-                      <Text variant="small" className="text-[#737373] font-medium leading-tight">
+                      <Text variant="small" className="text-[#737373] dark:text-[#94A3B8] font-medium leading-tight">
                         {stat.label}
                       </Text>
                     </div>

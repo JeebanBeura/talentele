@@ -9,7 +9,7 @@ export default function Logo({ className }) {
       aria-label="Talentele Home"
     >
       {/* Fallback styling for light background */}
-      <span className="text-xl md:text-2xl font-bold tracking-tight text-[#111111] font-display">
+      <span className="text-xl md:text-2xl font-bold tracking-tight text-[#111111] dark:text-white font-display">
         Talentele<span className="text-[#E6002D]">.</span>
       </span>
     </Link>

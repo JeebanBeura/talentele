@@ -105,14 +105,14 @@ export default function FAQ() {
   };
 
   return (
-    <Section className="relative bg-[#FAFAFA] pt-24 pb-32 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FAFAFA] dark:bg-[#0F172A] pt-10 overflow-hidden" useContainer={false}>
       {/* Background Decor */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.03]"
+        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.1] text-[#111] dark:text-white"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #111 1px, transparent 1px),
-            linear-gradient(to bottom, #111 1px, transparent 1px)
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           maskImage: 'radial-gradient(ellipse 70% 80% at 50% 0%, #000 40%, transparent 100%)',
@@ -122,7 +122,7 @@ export default function FAQ() {
       <motion.div
         animate={{ x: [0, -30, 30, 0], y: [0, 40, -40, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[10%] left-[10%] w-[35%] h-[40%] rounded-full bg-[#E6002D]/5 blur-[120px] pointer-events-none"
+        className="absolute top-[10%] left-[10%] w-[35%] h-[40%] rounded-full bg-[#E6002D]/5 dark:bg-[#E6002D]/20 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen"
       />
 
       <Container className="relative z-10">
@@ -132,9 +132,9 @@ export default function FAQ() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center rounded-full border border-[#EAEAEA] bg-white px-4 py-1.5 shadow-sm mb-6"
+            className="inline-flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white dark:bg-white/10 px-4 py-1.5 shadow-sm mb-6"
           >
-            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
               Help Center
             </span>
           </motion.div>
@@ -146,12 +146,12 @@ export default function FAQ() {
             transition={{ delay: 0.1 }}
             className="flex flex-col items-center w-full"
           >
-            <Heading level="h2" className="text-[#111111] mb-6 leading-tight text-center">
+            <Heading level="h2" className="text-[#111111] dark:text-white mb-6 leading-tight text-center">
               Got Questions? <br className="hidden sm:block" />
               We've Got <span className="text-[#E6002D]">Answers</span>
             </Heading>
 
-            <Text variant="bodyLarge" color="muted" className="mb-8 text-center mx-auto max-w-2xl">
+            <Text variant="bodyLarge" color="muted" className="mb-8 text-center mx-auto max-w-2xl text-[#525252] dark:text-[#A3A3A3]">
               Find everything you need to know about our programs, admissions, and how we help you launch a successful career.
             </Text>
           </motion.div>
@@ -164,7 +164,7 @@ export default function FAQ() {
             transition={{ delay: 0.2 }}
             className="w-full max-w-2xl mx-auto relative group"
           >
-            <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none text-[#737373] group-focus-within:text-[#E6002D] transition-colors">
+            <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none text-[#737373] dark:text-[#94A3B8] group-focus-within:text-[#E6002D] transition-colors">
               <Search className="w-5 h-5" />
             </div>
             <input
@@ -172,7 +172,7 @@ export default function FAQ() {
               placeholder="Search your question..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full h-16 pl-14 pr-12 rounded-[24px] border border-[#EAEAEA] bg-white shadow-sm outline-none transition-all duration-300 focus:border-[#E6002D]/30 focus:shadow-[0_8px_30px_rgb(230,0,45,0.12)] text-[#111111] font-medium text-lg placeholder:text-[#A3A3A3]"
+              className="w-full h-16 pl-14 pr-12 rounded-[24px] border border-[#EAEAEA] dark:border-[#334155] bg-white dark:bg-[#1E293B] shadow-sm outline-none transition-all duration-300 focus:border-[#E6002D]/30 focus:shadow-[0_8px_30px_rgb(230,0,45,0.12)] text-[#111111] dark:text-white font-medium text-lg placeholder:text-[#A3A3A3] dark:placeholder:text-[#94A3B8]"
             />
             {searchQuery && (
               <button
@@ -194,9 +194,9 @@ export default function FAQ() {
                 setActiveCategory(category);
                 setOpenFaqId(null);
               }}
-              className="relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6002D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAFA]"
+              className="relative px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E6002D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAFA] dark:focus-visible:ring-offset-[#0F172A]"
             >
-              <span className={cn("relative z-10", activeCategory === category ? "text-white" : "text-[#525252] hover:text-[#111111]")}>
+              <span className={cn("relative z-10", activeCategory === category ? "text-white" : "text-[#525252] dark:text-[#94A3B8] hover:text-[#111111] dark:hover:text-white")}>
                 {category}
               </span>
               {activeCategory === category && (
@@ -226,15 +226,15 @@ export default function FAQ() {
                     key={faq.id}
                     onClick={() => toggleFaq(faq.id)}
                     className={cn(
-                      "group bg-white/70 backdrop-blur-md rounded-[24px] border p-6 lg:p-8 cursor-pointer transition-all duration-300 overflow-hidden",
+                      "group bg-white/70 dark:bg-[#1E293B]/70 backdrop-blur-md rounded-[24px] border p-6 lg:p-8 cursor-pointer transition-all duration-300 overflow-hidden",
                       isOpen
-                        ? "border-[#E6002D]/30 shadow-[0_12px_40px_-15px_rgba(230,0,45,0.15)] bg-white -translate-y-1"
-                        : "border-[#EAEAEA] shadow-sm hover:border-[#E6002D]/20 hover:shadow-md hover:-translate-y-1"
+                        ? "border-[#E6002D]/30 shadow-[0_12px_40px_-15px_rgba(230,0,45,0.15)] bg-white dark:bg-[#1E293B] -translate-y-1"
+                        : "border-[#EAEAEA] dark:border-[#334155] shadow-sm hover:border-[#E6002D]/20 hover:shadow-md hover:-translate-y-1"
                     )}
                   >
                     <div className="flex items-start justify-between gap-6">
                       <div className="flex flex-col gap-2 flex-1">
-                        <Heading level="h5" className="text-[#111111] leading-snug">
+                        <Heading level="h5" className="text-[#111111] dark:text-white leading-snug">
                           {faq.question}
                         </Heading>
                         <AnimatePresence initial={false}>
@@ -245,7 +245,7 @@ export default function FAQ() {
                               exit={{ opacity: 0, height: 0 }}
                               className="overflow-hidden"
                             >
-                              <Text variant="small" className="text-[#737373] mt-1 font-medium truncate">
+                              <Text variant="small" className="text-[#737373] dark:text-[#94A3B8] mt-1 font-medium truncate">
                                 {faq.preview}
                               </Text>
                             </motion.div>
@@ -254,7 +254,7 @@ export default function FAQ() {
                       </div>
                       <div className={cn(
                         "flex shrink-0 items-center justify-center w-10 h-10 rounded-full transition-all duration-300",
-                        isOpen ? "bg-[#E6002D] text-white" : "bg-[#FAFAFA] text-[#525252] group-hover:bg-red-50 group-hover:text-[#E6002D]"
+                        isOpen ? "bg-[#E6002D] text-white" : "bg-[#FAFAFA] dark:bg-[#0F172A] text-[#525252] dark:text-white group-hover:bg-red-50 group-hover:dark:bg-[#E6002D]/10 group-hover:text-[#E6002D]"
                       )}>
                         <motion.div
                           animate={{ rotate: isOpen ? 180 : 0 }}
@@ -274,8 +274,8 @@ export default function FAQ() {
                           transition={{ duration: 0.3, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="pt-6 mt-4 border-t border-[#EAEAEA]">
-                            <Text variant="body" className="text-[#525252] leading-relaxed">
+                          <div className="pt-6 mt-4 border-t border-[#EAEAEA] dark:border-[#334155]">
+                            <Text variant="body" className="text-[#525252] dark:text-[#94A3B8] leading-relaxed">
                               {faq.answer}
                             </Text>
                           </div>
@@ -293,10 +293,10 @@ export default function FAQ() {
             animate={{ opacity: 1 }}
             className="flex flex-col items-center justify-center py-16 text-center"
           >
-            <div className="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-6">
-              <Search className="w-8 h-8 text-[#D4D4D4]" />
+            <div className="w-20 h-20 bg-white dark:bg-[#1E293B] rounded-full shadow-sm flex items-center justify-center mb-6">
+              <Search className="w-8 h-8 text-[#D4D4D4] dark:text-[#334155]" />
             </div>
-            <Heading level="h4" className="text-[#111111] mb-2">No matching questions found</Heading>
+            <Heading level="h4" className="text-[#111111] dark:text-white mb-2">No matching questions found</Heading>
             <Text variant="body" color="muted" className="mb-6">Try adjusting your search terms or browse all FAQs.</Text>
             <Button
               variant="outline"

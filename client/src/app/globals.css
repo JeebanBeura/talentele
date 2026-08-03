@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   /* CSS Reset */
   *, *::before, *::after {
@@ -22,12 +24,23 @@
     overflow-x: hidden;
     font-family: var(--font-inter), sans-serif;
     text-rendering: optimizeLegibility;
+    @apply transition-colors duration-300;
+  }
+
+  /* Dark mode overrides for body */
+  .dark body {
+    background-color: #0F172A;
+    color: #94A3B8;
   }
 
   /* Typography Defaults */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-plus-jakarta-sans), sans-serif;
     color: #111111;
+  }
+  
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #F8FAFC;
   }
 
   p {

@@ -1,11 +1,7 @@
 "use client";
 
 import * as React from "react";
-
-// Placeholder for actual Theme Provider (e.g. next-themes)
-function ThemeProvider({ children }) {
-  return <>{children}</>;
-}
+import { ThemeProvider } from "../components/providers/ThemeProvider";
 
 // Placeholder for future Query Provider (e.g. React Query)
 function QueryProvider({ children }) {

@@ -58,7 +58,7 @@ export default function Testimonials() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Section className="relative bg-[#FAFAFA] pt-24 pb-32 overflow-hidden" useContainer={false}>
+    <Section className="relative bg-[#FAFAFA] dark:bg-[#0F172A] pb-10 overflow-hidden" useContainer={false}>
       <Container className="relative z-10">
         {/* Header */}
         <div className="flex flex-col items-center w-full max-w-3xl mx-auto mb-16 text-center">
@@ -66,9 +66,9 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center rounded-full border border-[#EAEAEA] bg-white px-4 py-1.5 shadow-sm mb-6"
+            className="inline-flex items-center rounded-full border border-[#EAEAEA] dark:border-white/20 bg-white dark:bg-white/10 px-4 py-1.5 shadow-sm mb-6"
           >
-            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] uppercase">
+            <span className="text-[11px] font-bold tracking-[0.12em] text-[#525252] dark:text-[#E2E8F0] uppercase">
               Student Stories
             </span>
           </motion.div>
@@ -80,11 +80,11 @@ export default function Testimonials() {
             transition={{ delay: 0.1 }}
             className="flex flex-col items-center text-center w-full"
           >
-            <Heading level="h2" className="text-[#111111] mb-6 leading-tight text-center">
+            <Heading level="h2" className="text-[#111111] dark:text-white mb-6 leading-tight text-center">
               What Our Students <span className="text-[#E6002D]">Say</span>
             </Heading>
-            
-            <Text variant="bodyLarge" color="muted" className="mb-4 text-center mx-auto">
+
+            <Text variant="bodyLarge" color="muted" className="mb-4 text-center mx-auto text-[#525252] dark:text-[#A3A3A3]">
               Real stories from ambitious individuals who transformed their careers through our immersive programs.
             </Text>
           </motion.div>
@@ -95,7 +95,7 @@ export default function Testimonials() {
       <div className="w-full relative z-10 flex flex-col gap-6 md:gap-8 py-4">
         {/* ROW 1 (Moves Left) */}
         <div className="w-full flex overflow-hidden">
-          <motion.div 
+          <motion.div
             className="flex items-center"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
@@ -112,7 +112,7 @@ export default function Testimonials() {
 
         {/* ROW 2 (Moves Right) */}
         <div className="w-full flex overflow-hidden">
-          <motion.div 
+          <motion.div
             className="flex items-center"
             animate={{ x: ["-50%", "0%"] }}
             transition={{
@@ -133,7 +133,7 @@ export default function Testimonials() {
 
 function TestimonialCard({ item }) {
   return (
-    <div className="flex flex-col shrink-0 w-[350px] md:w-[450px] mx-3 md:mx-4 bg-white rounded-[28px] border border-[#EAEAEA] p-8 shadow-sm hover:shadow-lg hover:border-[#E6002D]/30 transition-all duration-300 group hover:-translate-y-1">
+    <div className="flex flex-col shrink-0 w-[350px] md:w-[450px] mx-3 md:mx-4 bg-white dark:bg-[#1E293B] rounded-[28px] border border-[#EAEAEA] dark:border-[#334155] p-8 shadow-sm hover:shadow-lg hover:border-[#E6002D]/30 transition-all duration-300 group hover:-translate-y-1">
       {/* Rating & Quote Icon */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex gap-1">
@@ -141,28 +141,28 @@ function TestimonialCard({ item }) {
             <Star key={star} className="w-4 h-4 text-[#F59E0B] fill-[#F59E0B]" />
           ))}
         </div>
-        <Quote className="w-8 h-8 text-[#EAEAEA] group-hover:text-[#E6002D]/10 transition-colors duration-300" />
+        <Quote className="w-8 h-8 text-[#EAEAEA] dark:text-[#334155] group-hover:text-[#E6002D]/10 group-hover:dark:text-[#E6002D]/10 transition-colors duration-300" />
       </div>
 
       {/* Review Text */}
-      <p className="text-[#525252] text-[15px] md:text-base leading-relaxed mb-8 flex-1 italic">
+      <p className="text-[#525252] dark:text-[#94A3B8] text-[15px] md:text-base leading-relaxed mb-8 flex-1 italic">
         "{item.text}"
       </p>
 
       {/* Profile Info */}
-      <div className="flex items-center gap-4 mt-auto pt-6 border-t border-[#EAEAEA]/60">
-        <div className="w-12 h-12 rounded-full overflow-hidden border border-[#EAEAEA] shrink-0">
-          <img 
-            src={item.img} 
-            alt={item.name} 
+      <div className="flex items-center gap-4 mt-auto pt-6 border-t border-[#EAEAEA]/60 dark:border-[#334155]">
+        <div className="w-12 h-12 rounded-full overflow-hidden border border-[#EAEAEA] dark:border-[#334155] shrink-0">
+          <img
+            src={item.img}
+            alt={item.name}
             className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-300"
           />
         </div>
         <div>
-          <Heading level="h6" className="text-[#111111] text-base mb-0.5">
+          <Heading level="h6" className="text-[#111111] dark:text-white text-base mb-0.5">
             {item.name}
           </Heading>
-          <div className="text-[12px] font-medium text-[#737373]">
+          <div className="text-[12px] font-medium text-[#737373] dark:text-[#94A3B8]">
             {item.role} @ <span className="text-[#E6002D] font-bold">{item.company}</span>
           </div>
         </div>
